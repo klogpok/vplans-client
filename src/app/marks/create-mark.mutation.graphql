@@ -1,0 +1,9 @@
+mutation createMark($createMarkData: CreateMarkInput!) {
+  createMark(createMarkData: $createMarkData) {
+    _id
+    student
+    class
+    mark
+    teacher
+  }
+}

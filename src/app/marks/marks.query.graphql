@@ -1,0 +1,14 @@
+query marks(
+  $student: String!
+  $class: String!
+  $mark: String!
+  $teacher: String!
+) {
+  marks(student: $student, class: $class, mark: $mark, teacher: $teacher) {
+    _id
+    student
+    class
+    mark
+    teacher
+  }
+}

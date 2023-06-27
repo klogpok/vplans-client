@@ -1,0 +1,64 @@
+<form [formGroup]="form">
+  <div class="mat-elevation-z8">
+    <table
+      class="list"
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div matColumnDef="position" class="box">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          cdkDrag
+          [cdkDragDisabled]="true"
+          class="without-search"
+        >
+          <span mat-sort-header>Position</span>
+        </th>
+
+        <td mat-cell *matCellDef="let row">{{ row.position }}</td>
+      </div>
+
+      <div matColumnDef="student" class="box">
+        <th mat-header-cell *matHeaderCellDef cdkDrag>
+          <span mat-sort-header>Student Name</span>
+          <input matInput placeholder="Search" formControlName="student" />
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.student }}</td>
+      </div>
+
+      <div matColumnDef="class" class="box">
+        <th mat-header-cell *matHeaderCellDef cdkDrag>
+          <span mat-sort-header>Class</span>
+          <input matInput placeholder="Search" formControlName="class" />
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.class }}</td>
+      </div>
+
+      <div matColumnDef="mark" class="box">
+        <th mat-header-cell *matHeaderCellDef cdkDrag>
+          <span mat-sort-header>Mark</span>
+          <input matInput placeholder="Search" formControlName="mark" />
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.mark }}</td>
+      </div>
+
+      <div matColumnDef="teacher" class="box">
+        <th mat-header-cell *matHeaderCellDef cdkDrag>
+          <span mat-sort-header>Teacher</span>
+          <input matInput placeholder="Search" formControlName="teacher" />
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.teacher }}</td>
+      </div>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+  </div>
+</form>
